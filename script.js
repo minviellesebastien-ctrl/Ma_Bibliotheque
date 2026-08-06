@@ -136,8 +136,8 @@ function fermerScanner(){
     document.getElementById("scannerPage").style.display="none";
 }
 
-document.getElementById("addBookBtn").onclick = function(){
-alert("Enregistrer cliqué");
+    document.getElementById("addBookBtn").onclick = function(){
+
 
     
     if(document.getElementById("manualFields").style.display === "flex"){
