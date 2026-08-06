@@ -316,8 +316,10 @@ function afficherBibliotheque(){
     <div class="book-author">${livre.auteur}</div>
 </div>
 
-<div class="book-delete" onclick="ouvrirSuppression(event, ${index})">
-    ✕
+<div class="book-actions">
+    <div class="book-menu" onclick="ouvrirMenuLivre(event, ${index})">
+        ⋮
+    </div>
 </div>
 
             </div>
@@ -492,3 +494,22 @@ document.querySelectorAll(".card, .list-card").forEach(element => {
 
 });
 
+let livreSelectionne = -1;
+
+function ouvrirMenuLivre(event, index){
+
+    event.stopPropagation();
+
+    livreSelectionne = index;
+
+    document.getElementById("bookMenuPopup").style.display = "flex";
+
+}
+
+document.getElementById("cancelMenuBtn").onclick = function(){
+
+    document.getElementById("bookMenuPopup").style.display = "none";
+
+    livreSelectionne = -1;
+
+};
