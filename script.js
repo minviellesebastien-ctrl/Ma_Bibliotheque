@@ -294,9 +294,23 @@ function fermerBibliotheque() {
 
 }
 
+function mettreAJourCompteur(){
+
+    const bibliotheque = JSON.parse(
+        localStorage.getItem("bibliotheque") || "[]"
+    );
+
+    const compteur = document.getElementById("libraryCount");
+
+    compteur.textContent =
+        `${bibliotheque.length} ${bibliotheque.length > 1 ? "livres" : "livre"}`;
+
+}
+
 function afficherBibliotheque(){
 
     const liste = document.getElementById("libraryList");
+    mettreAJourCompteur();
 
     liste.innerHTML = "";
 
