@@ -475,7 +475,8 @@ body{
 
 #confirmDeleteBtn{
     width:100%;
-    height:46px;
+    min-height:46px;
+    padding:0;
     border:none;
     border-radius:16px;
     background:#c84a4a;
