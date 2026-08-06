@@ -423,31 +423,29 @@ document.getElementById("deleteBookBtn").onclick = function(){
 
 function modifierLivre(index){
 
-    alert("Début");
-
     const bibliotheque = JSON.parse(
         localStorage.getItem("bibliotheque") || "[]"
     );
 
     const livre = bibliotheque[index];
 
-    alert("Livre chargé");
+    modeEdition = true;
+    indexEdition = index;
+    livreEnCours = { ...livre };
 
     document.getElementById("bookTitle").textContent = "Modifier le livre";
-
     document.getElementById("bookAuthor").style.display = "none";
-    
+
     document.getElementById("manualFields").style.display = "flex";
-
     document.getElementById("manualTitle").value = livre.titre;
-
     document.getElementById("manualAuthor").value = livre.auteur;
 
     document.getElementById("addBookBtn").textContent = "Enregistrer";
-    
-    document.getElementById("bookPopup").style.display = "flex";
+    document.getElementById("addBookBtn").style.display = "block";
 
-    alert("Popup affiché");
+    document.getElementById("deleteBookBtn").style.display = "none";
+
+    document.getElementById("bookPopup").style.display = "flex";
 
 }
 
