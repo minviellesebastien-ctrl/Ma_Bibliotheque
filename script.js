@@ -524,3 +524,14 @@ document.getElementById("confirmDeleteBtn").onclick = function(){
     );
 
 };
+
+document.getElementById("menuDeleteBtn").onclick = function(){
+
+    document.getElementById("bookMenuPopup").style.display = "none";
+
+    ouvrirSuppression(
+        { stopPropagation(){} },
+        livreSelectionne
+    );
+
+};
