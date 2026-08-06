@@ -544,3 +544,5 @@ document.getElementById("editBookBtn").onclick = function(){
     modifierLivre(livreSelectionne);
 
 };
+
+    mettreAJourCompteur();
