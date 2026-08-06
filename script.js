@@ -420,6 +420,19 @@ document.getElementById("deleteBookBtn").onclick = function(){
 };
 }
 
+function modifierLivre(index){
+
+    const bibliotheque = JSON.parse(
+        localStorage.getItem("bibliotheque") || "[]"
+    );
+
+    const livre = bibliotheque[index];
+
+    alert(livre.titre);
+
+}
+
+
 function supprimerLivre(event, index){
 
     event.stopPropagation();
@@ -533,6 +546,6 @@ document.getElementById("editBookBtn").onclick = function(){
 
     document.getElementById("bookMenuPopup").style.display = "none";
 
-    ouvrirLivre(livreSelectionne);
+    modifierLivre(livreSelectionne);
 
 };
