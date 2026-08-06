@@ -437,6 +437,8 @@ function modifierLivre(index){
     document.getElementById("manualFields").style.display = "flex";
 
     document.getElementById("manualTitle").value = livre.titre;
+
+    document.getElementById("manualAuthor").value = livre.auteur;
     
     document.getElementById("bookPopup").style.display = "flex";
 
