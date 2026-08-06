@@ -1,6 +1,5 @@
 let html5QrCode = null;
 let livreEnCours = null;
-let indexLivre = -1;
 let indexEdition = -1;
 let modeEdition = false;
 
@@ -374,51 +373,6 @@ function filtrerBibliotheque() {
 
     message.style.display = trouve ? "none" : "block";
 
-}
-
-
-function ouvrirLivre(index){
-
-if (document.getElementById("libraryPopup").style.display !== "flex") {
-    return;
-}
-    
-    const bibliotheque = JSON.parse(
-        localStorage.getItem("bibliotheque") || "[]"
-    );
-
-    const livre = bibliotheque[index];
-
-indexLivre = index;
-
-document.getElementById("bookTitle").textContent = livre.titre;
-document.getElementById("bookAuthor").textContent = livre.auteur;
-
-document.getElementById("bookStatus").textContent = "";
-
-document.getElementById("addBookBtn").style.display = "none";
-document.getElementById("deleteBookBtn").style.display = "block";
-
-document.getElementById("bookPopup").style.display = "flex";
-
-document.getElementById("deleteBookBtn").onclick = function(){
-
-    let bibliotheque = JSON.parse(
-        localStorage.getItem("bibliotheque") || "[]"
-    );
-
-    bibliotheque.splice(indexLivre,1);
-
-    localStorage.setItem(
-        "bibliotheque",
-        JSON.stringify(bibliotheque)
-    );
-
-    fermerBookPopup();
-
-    afficherBibliotheque();
-
-};
 }
 
 function modifierLivre(index){
