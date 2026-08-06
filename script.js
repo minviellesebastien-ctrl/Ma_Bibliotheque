@@ -432,6 +432,8 @@ function modifierLivre(index){
 
     alert("Livre chargé");
 
+    document.getElementById("bookTitle").textContent = "Modifier le livre";
+
     document.getElementById("bookPopup").style.display = "flex";
 
     alert("Popup affiché");
