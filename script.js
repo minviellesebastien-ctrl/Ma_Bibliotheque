@@ -1,6 +1,7 @@
 let html5QrCode = null;
 let livreEnCours = null;
 let indexLivre = -1;
+let indexEdition = -1;
 
 function ouvrirBibliotheque(){
 
