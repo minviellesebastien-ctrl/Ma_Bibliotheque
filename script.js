@@ -309,7 +309,7 @@ function afficherBibliotheque(){
         const couleur = index % 2 === 0 ? "green" : "orange";
 
         liste.innerHTML += `
-            <div class="book-item" onclick="ouvrirLivre(${index})">
+            <div class="book-item">
 
                 <div class="book-dot ${couleur}"></div>
 
