@@ -137,56 +137,73 @@ function fermerScanner(){
 
 document.getElementById("addBookBtn").onclick = function(){
 
-if(document.getElementById("manualFields").style.display === "flex"){
+    if(document.getElementById("manualFields").style.display === "flex"){
 
-    livreEnCours.titre =
-        document.getElementById("manualTitle").value.trim();
+        livreEnCours.titre =
+            document.getElementById("manualTitle").value.trim();
 
-    livreEnCours.auteur =
-        document.getElementById("manualAuthor").value.trim();
+        livreEnCours.auteur =
+            document.getElementById("manualAuthor").value.trim();
 
-    if(livreEnCours.titre === ""){
+        if(livreEnCours.titre === ""){
 
-        document.getElementById("bookStatus").style.color = "#e53935";
-        document.getElementById("bookStatus").textContent =
-            "Veuillez saisir un titre.";
+            document.getElementById("bookStatus").style.color = "#e53935";
+            document.getElementById("bookStatus").textContent =
+                "Veuillez saisir un titre.";
 
-        return;
+            return;
+        }
+
+        if(livreEnCours.auteur === ""){
+            livreEnCours.auteur = "Auteur inconnu";
+        }
     }
 
-    if(livreEnCours.auteur === ""){
-        livreEnCours.auteur = "Auteur inconnu";
-    }
-
-}
-    
     let bibliotheque =
         JSON.parse(localStorage.getItem("bibliotheque") || "[]");
 
     const status = document.getElementById("bookStatus");
 
-    if(bibliotheque.some(l=>l.isbn===livreEnCours.isbn)){
+    // Vérification des doublons
+    const doublon = bibliotheque.some((livre, i) => {
+
+        if(indexEdition !== -1 && i === indexEdition){
+            return false;
+        }
+
+        return livre.isbn === livreEnCours.isbn;
+
+    });
+
+    if(doublon){
 
         status.style.color = "#e53935";
         status.textContent = "❌ Ce livre est déjà dans la bibliothèque";
-
-        this.style.display="none";
         return;
     }
 
-    bibliotheque.push(livreEnCours);
+    if(indexEdition === -1){
+
+        bibliotheque.push(livreEnCours);
+
+    }else{
+
+        bibliotheque[indexEdition] = livreEnCours;
+        indexEdition = -1;
+
+    }
 
     localStorage.setItem(
         "bibliotheque",
         JSON.stringify(bibliotheque)
     );
 
-    status.style.color = "#4caf50";
-    status.textContent = "✅ Livre ajouté!";
+    afficherBibliotheque();
 
-    this.style.display="none";
+    fermerBookPopup();
 
 };
+    
 
 function importerBibliotheque(){
 
