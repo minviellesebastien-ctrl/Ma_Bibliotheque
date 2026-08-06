@@ -248,7 +248,17 @@ function exporterBibliotheque(){
     const lien = document.createElement("a");
 
     lien.href = URL.createObjectURL(fichier);
-    lien.download = `bibliotheque_${new Date().toISOString().slice(0,10)}.json`;
+    const maintenant = new Date();
+
+const jour = String(maintenant.getDate()).padStart(2, "0");
+const mois = String(maintenant.getMonth() + 1).padStart(2, "0");
+const annee = maintenant.getFullYear();
+
+const heure = String(maintenant.getHours()).padStart(2, "0");
+const minute = String(maintenant.getMinutes()).padStart(2, "0");
+
+lien.download =
+    `bibliotheque_${jour}-${mois}-${annee}_${heure}h${minute}.json`;
 
     document.body.appendChild(lien);
     lien.click();
