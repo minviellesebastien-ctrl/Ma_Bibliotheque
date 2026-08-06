@@ -137,7 +137,9 @@ function fermerScanner(){
 }
 
 document.getElementById("addBookBtn").onclick = function(){
+alert("Enregistrer cliqué");
 
+    
     if(document.getElementById("manualFields").style.display === "flex"){
 
         livreEnCours.titre =
