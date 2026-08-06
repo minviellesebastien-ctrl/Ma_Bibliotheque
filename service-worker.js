@@ -1,4 +1,4 @@
-const CACHE_NAME = "mon-coin-lecture-v5";
+const CACHE_NAME = "mon-coin-lecture-v6";
 
 const FILES_TO_CACHE = [
   "./",
