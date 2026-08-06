@@ -428,8 +428,24 @@ function modifierLivre(index){
 
     const livre = bibliotheque[index];
 
-    alert(livre.titre);
+    modeEdition = true;
+indexEdition = index;
 
+livreEnCours = { ...livre };
+
+document.getElementById("bookTitle").textContent = "Modifier le livre";
+document.getElementById("bookAuthor").style.display = "none";
+
+document.getElementById("manualFields").style.display = "flex";
+document.getElementById("manualTitle").value = livre.titre;
+document.getElementById("manualAuthor").value = livre.auteur;
+
+document.getElementById("addBookBtn").textContent = "Enregistrer";
+document.getElementById("addBookBtn").style.display = "block";
+
+document.getElementById("deleteBookBtn").style.display = "none";
+
+document.getElementById("bookPopup").style.display = "flex";
 }
 
 
