@@ -269,6 +269,7 @@ function fermerBookPopup(){
     document.getElementById("manualFields").style.display = "none";
     document.getElementById("manualTitle").value = "";
     document.getElementById("manualAuthor").value = "";
+    document.getElementById("bookAuthor").style.display = "block";
 
 }
 
@@ -434,6 +435,8 @@ function modifierLivre(index){
 
     document.getElementById("bookTitle").textContent = "Modifier le livre";
 
+    document.getElementById("bookAuthor").style.display = "none";
+    
     document.getElementById("manualFields").style.display = "flex";
 
     document.getElementById("manualTitle").value = livre.titre;
