@@ -473,14 +473,18 @@ body{
     background:#3f8b53;
 }
 
-#confirmDeleteBtn{
+#confirmDeleteBtn,
+#menuDeleteBtn{
     width:100%;
     min-height:46px;
     padding:0;
+
     border:none;
     border-radius:16px;
+
     background:#c84a4a;
     color:#fff;
+
     font-size:17px;
     font-weight:600;
 }
