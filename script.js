@@ -526,3 +526,13 @@ document.getElementById("menuDeleteBtn").onclick = function(){
     );
 
 };
+
+document.getElementById("editBookBtn").onclick = function(){
+
+    modeEdition = true;
+
+    document.getElementById("bookMenuPopup").style.display = "none";
+
+    ouvrirLivre(livreSelectionne);
+
+};
