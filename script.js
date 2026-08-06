@@ -442,6 +442,8 @@ function modifierLivre(index){
     document.getElementById("manualTitle").value = livre.titre;
 
     document.getElementById("manualAuthor").value = livre.auteur;
+
+    document.getElementById("addBookBtn").textContent = "Enregistrer";
     
     document.getElementById("bookPopup").style.display = "flex";
 
