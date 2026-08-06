@@ -1,0 +1,425 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    font-family:Montserrat, sans-serif;
+    overflow:hidden;
+}
+
+body{
+    background:#f8f3e8;
+}
+
+.background{
+    position:fixed;
+    inset:0;
+    background:url("fond.png") center center/cover no-repeat;
+    z-index:-1;
+}
+
+.content{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:145px 5% 40px;
+}
+
+.cards{
+    width:90%;
+    max-width:420px;
+    margin-top:22px;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+}
+
+.card{
+    width:100%;
+    display:block;
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+    transition:transform .15s ease, box-shadow .15s ease;
+
+    cursor:pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Carte Scanner ISBN */
+.card:last-child{
+    box-shadow:0 26px 46px rgba(0,0,0,.18);
+}
+
+.card,
+.list-card{
+    transition:transform .15s ease, box-shadow .15s ease;
+}
+
+.card:active,
+.list-card:active{
+    transform:scale(.96);
+}
+
+.white{
+    background:#fff;
+}
+
+.list-card{
+    width:90%;
+    max-width:420px;
+    height:56px;              /* même hauteur que la recherche */
+    margin:30px auto 0;
+    border-radius:18px;       /* mêmes coins */
+    box-shadow:0 8px 20px rgba(0,0,0,.12); /* même ombre */
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 20px;
+}
+
+.left{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.left img{
+    width:34px;
+    height:25px;
+}
+
+.left span{
+    font-size:18px;
+    font-weight:600;
+    color:#3f4d42;
+}
+
+.arrow{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    width:24px;
+    height:24px;
+
+    font-size:30px;
+    line-height:1;
+    color:#7d7d7d;
+
+    position:relative;
+    top:-2px;
+}
+
+.pressed{
+    transform:scale(.96);
+}
+
+
+.scanner-page{
+    position:fixed;
+    inset:0;
+    background:#000;
+    display:none;
+    z-index:999;
+}
+
+#camera{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+#closeScanner{
+    position:absolute;
+    top:20px;
+    right:20px;
+    width:46px;
+    height:46px;
+    border:none;
+    border-radius:50%;
+    background:rgba(255,255,255,.9);
+    font-size:24px;
+}
+
+.book-popup{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+}
+
+.book-card{
+    width:90%;
+    max-width:360px;
+    background:#fff;
+    border-radius:24px;
+    padding:28px 24px;
+    text-align:center;
+    box-shadow:0 12px 30px rgba(0,0,0,.2);
+    position:relative;
+}
+
+#bookTitle{
+    font-size:24px;
+    color:#3f4d42;
+    margin-bottom:12px;
+}
+
+#bookAuthor{
+    font-size:18px;
+    color:#777;
+    margin-bottom:28px;
+}
+
+#addBookBtn{
+    width:100%;
+    height:52px;
+    border:none;
+    border-radius:16px;
+    background:#f0b23c;
+    color:#fff;
+    font-size:18px;
+    font-weight:600;
+}
+
+#bookStatus{
+    margin-top:20px;
+    font-size:17px;
+    font-weight:600;
+    color:#4caf50;
+}
+
+#closeBookPopup,
+#closeImportPopup{
+    position:absolute;
+    top:14px;
+    right:14px;
+    width:38px;
+    height:38px;
+    border:none;
+    border-radius:50%;
+    background:#f2f2f2;
+    color:#555;
+    font-size:22px;
+}
+
+
+.library-popup{
+    position:fixed;
+    inset:0;
+    background:url("fond2.png") center top/cover no-repeat;
+    display:none;
+    flex-direction:column;
+    align-items:center;
+    z-index:1000;
+}
+
+.library-header{
+    position:relative;
+    height:60px;
+}
+
+.library-header h2{
+    color:#3f4d42;
+    font-size:28px;
+    margin-bottom:6px;
+}
+
+#bookCount{
+    color:#777;
+    font-size:16px;
+}
+
+.closeLibrary{
+    position:absolute;
+    bottom:30px;
+    left:50%;
+    transform:translateX(-50%);
+    width:54px;
+    height:54px;
+    border:none;
+    border-radius:50%;
+    background:#fff;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+    font-size:28px;
+    cursor:pointer;
+}
+
+#libraryList{
+    width:90%;
+    max-width:420px;
+    flex:1;
+    margin-top:35px;
+    overflow-y:auto;
+    margin-bottom:90px;
+}
+
+.library-search{
+    width:90%;
+    max-width:420px;
+    margin-top:185px;
+
+    background:#fff;
+    border-radius:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+
+    padding:14px 18px;
+}
+
+#searchBook{
+    width:100%;
+    border:none;
+    outline:none;
+    background:transparent;
+    font-size:16px;
+}
+
+.book-item{
+    display:flex;
+    align-items:flex-start;
+    gap:14px;
+    padding:16px 6px;
+    border-bottom:1px solid rgba(0,0,0,.10);
+    cursor:pointer;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    user-select: none;
+}
+
+.book-dot{
+    width:10px;
+    height:10px;
+
+    border-radius:50%;
+
+    margin-top:8px;
+
+    flex-shrink:0;
+}
+
+.book-dot.green{
+    background:#3f8b53;
+}
+
+.book-dot.orange{
+    background:#d79a27;
+}
+
+.book-info{
+    flex:1;
+}
+
+.book-name{
+    font-size:19px;
+    font-weight:700;
+    color:#3f4d42;
+}
+
+.book-author{
+    margin-top:4px;
+
+    font-size:15px;
+    font-style:italic;
+    color:#707070;
+}
+
+#deleteBookBtn{
+    width:100%;
+    height:52px;
+
+    margin-top:12px;
+
+    border:none;
+    border-radius:16px;
+
+    background:#c84a4a;
+    color:#fff;
+
+    font-size:18px;
+    font-weight:600;
+}
+
+.book-delete{
+    margin-left:auto;
+    align-self:flex-end;
+    font-size:20px;
+    color:#8a8a8a;
+    padding:8px;
+    cursor:pointer;
+}
+
+.book-delete:active{
+    color:#c84a4a;
+}
+
+.delete-buttons{
+    display:flex;
+    gap:12px;
+    margin-top:30px;
+}
+
+#cancelDeleteBtn,
+#confirmDeleteBtn{
+    flex:1;
+    height:52px;
+    border:none;
+    border-radius:16px;
+    font-size:18px;
+    font-weight:600;
+}
+
+#cancelDeleteBtn{
+    background:#f0b23c;
+    color:#fff;
+}
+
+#confirmDeleteBtn{
+    background:#c84a4a;
+    color:#fff;
+}
+
+
+#importPopup h2{
+    font-size:18px;
+    font-weight:600;
+    color:#3f4d42;
+    margin:20px 0 10px;
+}
+
+
+#manualFields{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin:20px 0;
+}
+
+#manualTitle,
+#manualAuthor{
+    width:100%;
+    height:50px;
+    padding:0 16px;
+
+    border:none;
+    border-radius:16px;
+
+    background:#f5f5f5;
+
+    font-size:16px;
+    color:#3f4d42;
+
+    outline:none;
+}

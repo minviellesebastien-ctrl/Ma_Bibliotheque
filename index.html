@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon coin lecture</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#F5ECDC">
+</head>
+
+ 
+    
+<body>
+
+    <div class="background"></div>
+
+    <div class="content">
+
+<div class="cards">
+
+    <img src="bibliotheque.png" class="card" onclick="setTimeout(ouvrirBibliotheque,120)">
+    <img src="scanner.png" class="card" onclick="setTimeout(ouvrirScanner,120)">
+</div>
+
+<div class="list-card" onclick="setTimeout(importerBibliotheque,120)">
+    <div class="left">
+        <img src="importer.png" alt="Importer">
+        <span>Importer la bibliothèque</span>
+    </div>
+    <span class="arrow">›</span>
+</div>
+
+<div class="list-card" onclick="setTimeout(exporterBibliotheque,120)">
+    <div class="left">
+        <img src="exporter.png" alt="Exporter">
+        <span>Exporter la bibliothèque</span>
+    </div>
+    <span class="arrow">›</span>
+</div>
+    
+</div>
+
+    <div id="scannerPage" class="scanner-page">
+    <div id="camera"></div>
+
+    <button id="closeScanner" onclick="fermerScanner()">
+        ✕
+    </button>
+
+    </div>
+
+<div id="bookPopup" class="book-popup">
+
+    <div class="book-card">
+
+        <button id="closeBookPopup" onclick="fermerBookPopup()">
+            ✕
+        </button>
+
+        <h2 id="bookTitle"></h2>
+
+        <p id="bookAuthor"></p>
+
+<div id="manualFields" style="display:none;">
+
+    <input
+        type="text"
+        id="manualTitle"
+        placeholder="Titre">
+
+    <input
+        type="text"
+        id="manualAuthor"
+        placeholder="Auteur">
+
+</div>
+        
+        <div id="bookStatus"></div>
+
+        <button id="addBookBtn">
+            Ajouter
+        </button>
+
+        <button id="deleteBookBtn" style="display:none;">
+            Supprimer
+        </button>
+
+    </div>
+
+</div>
+
+<div id="libraryPopup" class="library-popup">
+
+    <div class="library-search">
+        <input
+            type="text"
+            id="searchBook"
+            placeholder="Rechercher un livre..."
+            oninput="filtrerBibliotheque()"
+            >
+    </div>
+
+    <div id="libraryList"></div>
+
+    <button class="closeLibrary" onclick="fermerBibliotheque()">
+        ✕
+    </button>
+
+<div id="deletePopup" class="book-popup">
+
+    <div class="book-card">
+
+        <h2>Supprimer le livre</h2>
+
+        <div class="delete-buttons">
+
+            <button id="cancelDeleteBtn">
+                Annuler
+            </button>
+
+            <button id="confirmDeleteBtn">
+                Supprimer
+            </button>
+
+        </div>
+
+    </div>
+
+ </div>   
+    
+</div>
+
+<script src="https://unpkg.com/html5-qrcode"></script>
+<script src="script.js"></script>
+
+<div id="importPopup" class="book-popup">
+
+    <div class="book-card">
+
+        <button onclick="fermerImportPopup()" id="closeImportPopup">
+            ✕
+        </button>
+
+        <h2>Bibliothèque chargée</h2>
+
+    </div>
+
+
+</div>
+
+<script>
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("service-worker.js");
+}
+</script>
+    
+</body>
+</html>
