@@ -260,12 +260,10 @@ function exporterBibliotheque(){
 function fermerBookPopup(){
 
     document.getElementById("bookPopup").style.display = "none";
-
     document.getElementById("bookStatus").textContent = "";
-
     document.getElementById("addBookBtn").style.display = "block";
+    document.getElementById("addBookBtn").textContent = "Ajouter";
     document.getElementById("deleteBookBtn").style.display = "none";
-
     document.getElementById("manualFields").style.display = "none";
     document.getElementById("manualTitle").value = "";
     document.getElementById("manualAuthor").value = "";
