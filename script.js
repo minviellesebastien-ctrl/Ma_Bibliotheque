@@ -435,6 +435,8 @@ function modifierLivre(index){
     document.getElementById("bookTitle").textContent = "Modifier le livre";
 
     document.getElementById("manualFields").style.display = "flex";
+
+    document.getElementById("manualTitle").value = livre.titre;
     
     document.getElementById("bookPopup").style.display = "flex";
 
