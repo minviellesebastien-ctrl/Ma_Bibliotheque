@@ -469,13 +469,19 @@ body{
     width:100%;
     min-height:46px;
     padding:0;
-
     border:none;
     border-radius:16px;
-
     background:#c84a4a;
     color:#fff;
-
     font-size:17px;
     font-weight:600;
+}
+
+.library-count{
+    margin-top:24px;
+    text-align:center;
+    color:#8a7b63;
+    font-size:18px;
+    font-weight:600;
+    letter-spacing:.5px;
 }
