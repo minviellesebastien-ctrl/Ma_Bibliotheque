@@ -1,6 +1,6 @@
 {
   "name": "Mon coin lecture",
-  "short_name": "Lecture",
+  "short_name": "Ma Bibliothèque",
   "description": "Ma bibliothèque personnelle",
   "start_url": "./",
   "scope": "./",
